@@ -33,11 +33,24 @@ export default function login() {
   };
   return (
     <ImageBackground
-      source={require('../../assets/images/auth-bg.jpeg')}
+      source={require('../../assets/images/auth-bg-2.jpg')}
       className="h-full object-cover w-full bg-no-repeat relative flex justify-end"
     >
       <LinearGradient
-        colors={['#000000', 'transparent']}
+        colors={['#101010', 'transparent']}
+        start={{ x: 0.5, y: 1 }} // bottom center
+        end={{ x: 0.5, y: 0 }} // top center
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: 250,
+          zIndex: 1,
+        }}
+      />
+      <LinearGradient
+        colors={['#101010', 'transparent']}
         style={{
           position: 'absolute',
           top: 0,
@@ -50,7 +63,7 @@ export default function login() {
       <View className="flex flex-col items-center mb-10 z-[5] relative">
         <Image
           source={require('../../assets/images/logo.png')}
-          className="h-[60px] w-[200px]"
+          className="h-[80px] w-[150px]"
           resizeMode="contain"
         />
         <Text className="text-white text-lg font-bold mt-6 tracking-tight">

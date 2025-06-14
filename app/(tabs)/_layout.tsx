@@ -1,9 +1,12 @@
 import { COLORS } from '@/constants/theme';
+import { useUser } from '@clerk/clerk-expo';
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { Image } from 'react-native';
 
 export default function TabLayout() {
+  const { user } = useUser();
   return (
     <Tabs
       screenOptions={{
@@ -57,7 +60,11 @@ export default function TabLayout() {
         name="profile"
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Ionicons name="person-circle" size={size} color={color} />
+            // <Ionicons name="person-circle" size={size} color={color} />
+            <Image
+              source={{ uri: user?.imageUrl }}
+              className="rounded-full size-8"
+            />
           ),
         }}
       />

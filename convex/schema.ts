@@ -16,9 +16,9 @@ export default defineSchema({
 
   posts: defineTable({
     userId: v.id('users'),
-    imageUrl: v.string(),
-    storageId: v.id('_storage'), // NOTE: needed to delete post
-    caption: v.optional(v.string()),
+    imageUrl: v.optional(v.string()),
+    storageId: v.optional(v.id('_storage')), // NOTE: needed to delete post
+    caption: v.string(),
     likes: v.number(),
     comments: v.number(),
   }).index('by_user', ['userId']),
